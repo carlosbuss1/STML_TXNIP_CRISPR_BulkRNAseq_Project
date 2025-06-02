@@ -1,10 +1,12 @@
-# STML TXNIP CRISPR BulkRNAseq Project
+# STML TXNIP CRISPR Bulk-RNAseq Project
 
 ## Overview
 
-This project investigates the role of Thioredoxin-Interacting Protein (TXNIP) in human pluripotent stem cells using **CRISPR/Cas12 genome editing**. The goal is to evaluate the impact of TXNIP deficiency on glucose metabolism and the differentiation of hepatocyte-like cells and insulin-producing islet-like aggregates.
+This project investigates the role of Thioredoxin-Interacting Protein (TXNIP) in human pluripotent stem cells using **CRISPR/Cas12 genome editing**. 
+The goal is to evaluate the impact of TXNIP deficiency on glucose metabolism and the differentiation of hepatocyte-like cells and insulin-producing islet-like aggregates.
 
 **Reference:** Traini, Negueruela, (...) Buss et al., 2025.
+https://stemcellres.biomedcentral.com/articles/10.1186/s13287-025-04314-5
 
 ------
 
