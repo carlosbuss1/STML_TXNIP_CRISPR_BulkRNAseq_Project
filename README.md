@@ -101,7 +101,10 @@ graphqlCopiar código.
 ## Citation
 
 If you use this repository or any part of the analysis in your research, please cite:
-**Traini, L., Negueruela, J., et al. (2025)**. CRISPR/Cas12 genome editing of TXNIP in human pluripotent stem cells to generate hepatocyte-like cells and insulin-producing islet-like aggregates. *(https://stemcellres.biomedcentral.com/articles/10.1186/s13287-025-04314-5)*.
+Cite this article
+
+Traini, L., Negueruela, J., Elvira, B. et al. Genome editing of TXNIP in human pluripotent stem cells for the generation of hepatocyte-like cells and insulin-producing islet-like aggregates. Stem Cell Res Ther 16, 225 (2025). 
+https://doi.org/10.1186/s13287-025-04314-5
 
 ------
 
