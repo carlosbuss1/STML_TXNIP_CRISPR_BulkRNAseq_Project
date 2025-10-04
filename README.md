@@ -1,115 +1,117 @@
-# STML TXNIP CRISPR Bulk-RNAseq Project
+STML TXNIP CRISPR Bulk-RNAseq Project
 
-## Overview
+Overview
+This project investigates the role of Thioredoxin-Interacting Protein (TXNIP) in human pluripotent stem cells using CRISPR/Cas12 genome editing. The goal is to evaluate the impact of TXNIP deficiency on glucose metabolism and the differentiation of hepatocyte-like cells and insulin-producing islet-like aggregates.
 
-This project investigates the role of Thioredoxin-Interacting Protein (TXNIP) in human pluripotent stem cells using **CRISPR/Cas12 genome editing**. 
-The goal is to evaluate the impact of TXNIP deficiency on glucose metabolism and the differentiation of hepatocyte-like cells and insulin-producing islet-like aggregates.
+<p align="center"> <img src="txnip2025.png" alt="TXNIP CRISPR Bulk RNA-seq Analysis Overview" width="1000"/> <br> <em>Figure 2: Overview of TXNIP CRISPR/Cas12 editing and transcriptomic analysis workflow</em> </p>
 
-**Reference:** Traini, Negueruela, (...) Buss et al., 2025.
-https://stemcellres.biomedcentral.com/articles/10.1186/s13287-025-04314-5
+Reference: Traini, Negueruela, (...) Buss et al., 2025. https://stemcellres.biomedcentral.com/articles/10.1186/s13287-025-04314-5
 
-------
+Key Objectives
+CRISPR/Cas12 Editing: Target TXNIP in human pluripotent stem cells
 
-## Key Objectives
+Bulk RNA Sequencing: Analyze transcriptomic changes following TXNIP knockdown
 
-1. **CRISPR/Cas12 Editing**: Target TXNIP in human pluripotent stem cells.
+Differential Expression Analysis (DEA): Compare conditions (e.g., WT vs KO under DMSO and Thapsigargin treatments)
 
-2. **Bulk RNA Sequencing**: Analyze transcriptomic changes following TXNIP knockdown.
+Pathway Enrichment Analysis: Identify biological pathways impacted by TXNIP knockdown using Gene Set Enrichment Analysis (GSEA)
 
-3. Differential Expression Analysis (DEA)
+Analysis Workflow
+Data Preprocessing
+Load and annotate raw count data (TXNIP_raw_counts.csv)
 
-   :
+Normalize data using log-CPM transformation
 
-   - Compare conditions (e.g., WT vs KO under DMSO and Thapsigargin treatments).
+Filter genes based on expression and variability thresholds
 
-4. Pathway Enrichment Analysis
+Differential Expression Analysis (DEA)
+Perform DEA using limma
 
-   :
+Define contrasts for various conditions:
 
-   - Identify biological pathways impacted by TXNIP knockdown using Gene Set Enrichment Analysis (GSEA).
+WT Thaps vs DMSO
 
-------
+KO Thaps vs DMSO
 
-## Analysis Workflow
+KO vs WT (DMSO and Thaps)
 
-1. **Data Preprocessing**:
-   - Load and annotate raw count data (`TXNIP_raw_counts.csv`).
-   - Normalize data using log-CPM transformation.
-   - Filter genes based on expression and variability thresholds.
-2. **Differential Expression Analysis (DEA)**:
-   - Perform DEA using `limma`.
-   - Define contrasts for various conditions:
-     - WT Thaps vs DMSO
-     - KO Thaps vs DMSO
-     - KO vs WT (DMSO and Thaps)
-3. **Gene Set Enrichment Analysis (GSEA)**:
-   - Perform pathway analysis (GO, KEGG, and Reactome).
-   - Separate analyses for upregulated and downregulated genes.
-4. **Visualization**:
-   - Generate dot plots for GSEA results.
-   - Export DEA and GSEA outputs.
+Gene Set Enrichment Analysis (GSEA)
+Perform pathway analysis (GO, KEGG, and Reactome)
 
-------
+Separate analyses for upregulated and downregulated genes
 
-## Repository Structure
+Visualization
+Generate dot plots for GSEA results
 
-```
-graphqlCopiar código.
+Export DEA and GSEA outputs
+
+Repository Structure
+text
 ├── Dockerfile                    # Docker configuration
 ├── combined_txnip_dea.R          # Main R script for DEA and GSEA
 ├── TXNIP_raw_counts.csv          # Raw count data (input)
+├── txnip2025.png                 # Project overview figure
 ├── DEA_results_WT_Thaps_vs_DMSO.csv  # Example DEA output
 ├── README.md                     # Project overview and instructions
-```
+Docker Workflow
+Prerequisites
+Install Docker
 
-------
+Running the Project
+Build the Docker Image:
 
-## Docker Workflow
+bash
+docker build -t txnip_project .
+Run the Analysis:
 
-### Prerequisites
+bash
+docker run -v $(pwd):/app -w /app txnip_project
+Outputs:
 
-- Install Docker.
+DEA results (DEA_results_*.csv)
 
-### Running the Project
+GSEA visualizations (*.png)
 
-1. **Build the Docker Image**:
+Generated in the current directory
 
-   ```
-   bash
-   
-   
-   Copiar código
-   docker build -t txnip_project .
-   ```
+Key Findings
+The analysis reveals significant transcriptomic alterations in TXNIP-knockout cells, particularly in:
 
-2. **Run the Analysis**:
+Glucose metabolism pathways
 
-   ```
-   bash
-   
-   
-   Copiar código
-   docker run -v $(pwd):/app -w /app txnip_project
-   ```
+Stress response mechanisms
 
-3. **Outputs**:
+Hepatocyte differentiation markers
 
-   - DEA results (`DEA_results_*.csv`) and GSEA visualizations (`*.png`) will be generated in the current directory.
+Insulin signaling components
 
-------
-
-## Citation
-
+Citation
 If you use this repository or any part of the analysis in your research, please cite:
-Cite this article
 
-Traini, L., Negueruela, J., Elvira, B. et al. Genome editing of TXNIP in human pluripotent stem cells for the generation of hepatocyte-like cells and insulin-producing islet-like aggregates. Stem Cell Res Ther 16, 225 (2025). 
-https://doi.org/10.1186/s13287-025-04314-5
+bibtex
+@article{traini2025genome,
+  title={Genome editing of TXNIP in human pluripotent stem cells for the generation of hepatocyte-like cells and insulin-producing islet-like aggregates},
+  author={Traini, Luca and Negueruela, Javier and Elvira, Blanca and Buss, Carlos E and others},
+  journal={Stem Cell Research \& Therapy},
+  volume={16},
+  number={1},
+  pages={225},
+  year={2025},
+  publisher={Springer},
+  doi={10.1186/s13287-025-04314-5}
+}
+Article Link: https://stemcellres.biomedcentral.com/articles/10.1186/s13287-025-04314-5
 
-------
+Contact
+Carlos Buss
+Bioinformatician at STML laboratory
+ULB Erasme Campus, Brussels, Belgium
+GitHub: @carlosbuss1
 
-## Contact
+Related Projects
+magmaflowR - Interactive volcano plot visualization for differential expression analysis
 
-For inquiries, please contact:
-**Carlos Buss** - Bioinformatician at STML laboratory - ULB Erasme Campus, Brussels, Belgium.
-GitHub: [@carlosbuss1](https://github.com/carlosbuss1)
+STML Laboratory - Signal Transduction and Metabolism Laboratory website
+
+<p align="center"> <em>STML Laboratory • Université libre de Bruxelles • 2025</em> </p>
+
